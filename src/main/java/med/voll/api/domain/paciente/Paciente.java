@@ -21,7 +21,7 @@ public class Paciente {
     private String nombre;
     private String email;
     private String telefono;
-    private String documentoIdentidad;
+    private String documento;
     @Embedded
     private Direccion direccion;
     private Boolean activo;
@@ -31,7 +31,7 @@ public class Paciente {
         this.nombre = datosRegistroPaciente.nombre();
         this.email = datosRegistroPaciente.email();
         this.telefono = datosRegistroPaciente.telefono();
-        this.documentoIdentidad = datosRegistroPaciente.documentoIdentidad();
+        this.documento = datosRegistroPaciente.documento();
         this.direccion = new Direccion(datosRegistroPaciente.direccion());
     }
 

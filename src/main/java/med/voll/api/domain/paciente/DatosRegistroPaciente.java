@@ -20,6 +20,6 @@ public record DatosRegistroPaciente(
 
         //@Pattern(regexp = "\\d{3}\\.\\d{3}\\.\\d{3}\\-\\d{2}")
         @NotBlank
-        String documentoIdentidad,
+        String documento,
         @NotNull @Valid DatosDireccion direccion) {
 }
