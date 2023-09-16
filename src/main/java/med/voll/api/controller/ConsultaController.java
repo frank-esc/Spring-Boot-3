@@ -1,5 +1,6 @@
 package med.voll.api.controller;
 
+import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.validation.Valid;
 import med.voll.api.domain.consulta.AgendaDeConsultaService;
@@ -26,10 +27,10 @@ public class ConsultaController {
 
     @PostMapping
     @Transactional
-/*    @Operation(
+    @Operation(
             summary = "registra una consulta en la base de datos",
             description = "",
-            tags = { "consulta", "post" })*/
+            tags = { "consulta", "post" })
     public ResponseEntity agendar(@RequestBody @Valid DatosAgendarConsulta datos) throws ValidacionDeIntegridad {
         var response = service.agendar(datos);
         return ResponseEntity.ok(response);
@@ -37,6 +38,10 @@ public class ConsultaController {
 
     @DeleteMapping
     @Transactional
+    @Operation(
+            summary = "cancela una consulta de la agenda",
+            description = "requiere motivo",
+            tags = { "consulta", "delete" })
     public ResponseEntity cancelar(@RequestBody @Valid DatosCancelamientoConsulta datos) throws ValidacionDeIntegridad {
         service.cancelar(datos);
         return ResponseEntity.noContent().build();
